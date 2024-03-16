@@ -1,16 +1,31 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:my_app_10/models/expence.dart';
 
-class Expence_List extends StatelessWidget {
-  const Expence_List({super.key});
+class ExpenceList extends StatelessWidget {
+  const ExpenceList({super.key, required this.expenceList});
+  final List<ExpenceModel> expenceList;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(child: ListView.builder(
-            itemCount: _expenceList.length,
+            itemCount: expenceList.length,
             itemBuilder: (context, index){
-              return Text(_expenceList[index].title);
+              return Card(
+                child: Column(
+                  children: [
+                    Text(expenceList[index].title, style: Theme.of(context).textTheme.titleLarge,),
+                    Row(children: [
+                      Text(expenceList[index].amount.toStringAsFixed(2)),
+                      Row(children: [
+                        Icon(Icons.trending_up), 
+                        Text(expenceList[index].date.toString())
+                      ],)
+                    ],)
+                  ],
+                ),
+              );
             }
-          ),
+          )
     );
   }
-}*/
+}

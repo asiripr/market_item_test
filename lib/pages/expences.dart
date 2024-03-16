@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_app_10/models/expence.dart';
-import 'package:my_app_10/models/expence_list.dart';
+import 'package:my_app_10/widgets/expence_list.dart';
 
 class Expences extends StatefulWidget {
   const Expences({super.key});
@@ -16,7 +16,22 @@ class Expences extends StatefulWidget {
 class _ExpencesState extends State<Expences> {
   //expence list
   final List <ExpenceModel> _expenceList = [
-    ExpenceModel(title: "Foot Ball", amount: 12.5, date: DateTime.now(), category: Category.leasure), ExpenceModel(title: "Papaya", amount: 8.3, date: DateTime.now(), category: Category.food), ExpenceModel(title: "Mini Project", amount: 24.6, date: DateTime.now(), category: Category.work)
+    ExpenceModel(
+      title: "Foot Ball", 
+      amount: 12.5, 
+      date: DateTime.now(), 
+      category: Category.leasure), 
+    ExpenceModel(
+      title: "Papaya",
+      amount: 8.3, 
+      date: DateTime.now(), 
+      category: Category.food), 
+    ExpenceModel(
+      title: "Mini Project", 
+      amount: 24.6, 
+      date: DateTime.now(), 
+      category: Category.work
+      )
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,7 +54,7 @@ class _ExpencesState extends State<Expences> {
       ),
       body: Column(
         children: [
-          Expence_List(),
+          ExpenceList(expenceList: _expenceList),
         ],
       ),
     );
